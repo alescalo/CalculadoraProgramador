@@ -14,6 +14,12 @@ import android.widget.TextView;
 import java.math.BigDecimal;
 import java.math.RoundingMode;
 
+/**
+ * Esta clase define el comportamiento de la calculadora de programador, su funcionalidad y elementos.
+ * @author: Pablo Ascorbe, Alberto Escalona, David Íñiguez e Iñaki Lafuente a partir de la librería de ritik2410
+ * @version: 30/04/2021
+ * @see <a href = "https://github.com/ritik2410/Elegant_Calculator"/>Elegant_Calculator</a>
+ * */
 
 public class MainActivity extends AppCompatActivity {
     private Button b1;
@@ -71,14 +77,24 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         viewSetup();
 
+
         b1.setOnClickListener(new View.OnClickListener() {
+            /**
+             * Listener para el botón b1, permite escribir un 1 en la calculadora, ya sea en modo hexadecimal, binario o decimal
+             * @param view vista en la que esta el boton
+             */
             @Override
             public void onClick(View view) {
                 binaryButtonClicked("1");
             }
         });
 
+
         b2.setOnClickListener(new View.OnClickListener() {
+            /**
+             * Listener para el botón b2, permite escribir un 2 en la calculadora, ya sea en modo hexadecimal, binario o decimal
+             * @param view vista en la que esta el boton
+             */
             @Override
             public void onClick(View view) {
                 if (modo.equals("dec"))
@@ -88,7 +104,12 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+
         b3.setOnClickListener(new View.OnClickListener() {
+            /**
+             * Listener para el botón b3, permite escribir un 3 en la calculadora, ya sea en modo hexadecimal, binario o decimal
+             * @param view vista en la que esta el boton
+             */
             @Override
             public void onClick(View view) {
                 if (modo.equals("dec"))
@@ -98,7 +119,12 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+
         b4.setOnClickListener(new View.OnClickListener() {
+            /**
+             * Listener para el botón b4, permite escribir un 4 en la calculadora, ya sea en modo hexadecimal, binario o decimal
+             * @param view vista en la que esta el boton
+             */
             @Override
             public void onClick(View view) {
                 if (modo.equals("dec"))
@@ -108,7 +134,12 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+
         b5.setOnClickListener(new View.OnClickListener() {
+            /**
+             * Listener para el botón b5, permite escribir un 5 en la calculadora, ya sea en modo hexadecimal, binario o decimal
+             * @param view vista en la que esta el boton
+             */
             @Override
             public void onClick(View view) {
                 if (modo.equals("dec"))
@@ -118,7 +149,12 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+
         b6.setOnClickListener(new View.OnClickListener() {
+            /**
+             * Listener para el botón b6, permite escribir un 6 en la calculadora, ya sea en modo hexadecimal, binario o decimal
+             * @param view vista en la que esta el boton
+             */
             @Override
             public void onClick(View view) {
                 if (modo.equals("dec"))
@@ -129,6 +165,10 @@ public class MainActivity extends AppCompatActivity {
         });
 
         b7.setOnClickListener(new View.OnClickListener() {
+            /**
+             * Listener para el botón b7, permite escribir un 7 en la calculadora, ya sea en modo hexadecimal, binario o decimal
+             * @param view vista en la que esta el boton
+             */
             @Override
             public void onClick(View view) {
                 if (modo.equals("dec"))
@@ -139,6 +179,10 @@ public class MainActivity extends AppCompatActivity {
         });
 
         b8.setOnClickListener(new View.OnClickListener() {
+            /**
+             * Listener para el botón b8, permite escribir un 8 en la calculadora, ya sea en modo hexadecimal, binario o decimal
+             * @param view vista en la que esta el boton
+             */
             @Override
             public void onClick(View view) {
                 if (modo.equals("dec"))
@@ -149,6 +193,10 @@ public class MainActivity extends AppCompatActivity {
         });
 
         b9.setOnClickListener(new View.OnClickListener() {
+            /**
+             * Listener para el botón b9, permite escribir un 9 en la calculadora, ya sea en modo hexadecimal, binario o decimal
+             * @param view vista en la que esta el boton
+             */
             @Override
             public void onClick(View view) {
                 if (modo.equals("dec"))
@@ -159,6 +207,10 @@ public class MainActivity extends AppCompatActivity {
         });
 
         b0.setOnClickListener(new View.OnClickListener() {
+            /**
+             * Listener para el botón b0, permite escribir un 0 en la calculadora, ya sea en modo hexadecimal, binario o decimal
+             * @param view vista en la que esta el boton
+             */
             @Override
             public void onClick(View view) {
                 binaryButtonClicked("0");
@@ -167,6 +219,10 @@ public class MainActivity extends AppCompatActivity {
 
 
         bA.setOnClickListener(new View.OnClickListener() {
+            /**
+             * Listener para el botón bA, permite escribir una A en la calculadora hexadecimal
+             * @param view vista en la que esta el boton
+             */
             @Override
             public void onClick(View view) {
                 letterButtonClicked("a");
@@ -174,6 +230,10 @@ public class MainActivity extends AppCompatActivity {
         });
 
         bB.setOnClickListener(new View.OnClickListener() {
+            /**
+             * Listener para el botón bB, permite escribir una B en la calculadora hexadecimal
+             * @param view vista en la que esta el boton
+             */
             @Override
             public void onClick(View view) {
                 letterButtonClicked("b");
@@ -181,6 +241,10 @@ public class MainActivity extends AppCompatActivity {
         });
 
         bC.setOnClickListener(new View.OnClickListener() {
+            /**
+             * Listener para el botón bC, permite escribir una C en la calculadora hexadecimal
+             * @param view vista en la que esta el boton
+             */
             @Override
             public void onClick(View view) {
                 letterButtonClicked("c");
@@ -188,6 +252,10 @@ public class MainActivity extends AppCompatActivity {
         });
 
         bD.setOnClickListener(new View.OnClickListener() {
+            /**
+             * Listener para el botón bD, permite escribir una D en la calculadora hexadecimal
+             * @param view vista en la que esta el boton
+             */
             @Override
             public void onClick(View view) {
                 letterButtonClicked("d");
@@ -195,6 +263,10 @@ public class MainActivity extends AppCompatActivity {
         });
 
         bE.setOnClickListener(new View.OnClickListener() {
+            /**
+             * Listener para el botón bE, permite escribir una E en la calculadora hexadecimal
+             * @param view vista en la que esta el boton
+             */
             @Override
             public void onClick(View view) {
                 letterButtonClicked("e");
@@ -202,6 +274,10 @@ public class MainActivity extends AppCompatActivity {
         });
 
         bF.setOnClickListener(new View.OnClickListener() {
+            /**
+             * Listener para el botón bF, permite escribir una F en la calculadora hexadecimal
+             * @param view vista en la que esta el boton
+             */
             @Override
             public void onClick(View view) {
                 letterButtonClicked("f");
@@ -211,6 +287,7 @@ public class MainActivity extends AppCompatActivity {
 
 
         b_add.setOnClickListener(new View.OnClickListener() {
+
             @Override
             public void onClick(View view) {
                 if(tDec.getText().equals("Invalid Expression")){
@@ -226,6 +303,11 @@ public class MainActivity extends AppCompatActivity {
         });
 
         b_sub.setOnClickListener(new View.OnClickListener() {
+            /**
+             * Listener para el botón b_sub, permite escribir un - en la calculadora, borrando el texto invalid expression si estuviese
+             * y comprobando que la sintaxis lo permite, en caso contrario no añade nada
+             * @param view vista en la que esta el boton
+             */
             @Override
             public void onClick(View view) {
                 /*
@@ -262,6 +344,11 @@ public class MainActivity extends AppCompatActivity {
         });
 
         b_multi.setOnClickListener(new View.OnClickListener() {
+            /**
+             * Listener para el botón b_multi, permite escribir un * en la calculadora, borrando el texto invalid expression si estuviese
+             * y comprobando que la sintaxis lo permite, en caso contrario no añade nada
+             * @param view vista en la que esta el boton
+             */
             @Override
             public void onClick(View view) {
                 if(tDec.getText().equals("Invalid Expression")){
@@ -276,6 +363,11 @@ public class MainActivity extends AppCompatActivity {
         });
 
         b_divide.setOnClickListener(new View.OnClickListener() {
+            /**
+             * Listener para el botón b_divide, permite escribir un / en la calculadora, borrando el texto invalid expression si estuviese
+             * y comprobando que la sintaxis lo permite, en caso contrario no añade nada
+             * @param view vista en la que esta el boton
+             */
             @Override
             public void onClick(View view) {
                 if(tDec.getText().equals("Invalid Expression")){
@@ -291,6 +383,11 @@ public class MainActivity extends AppCompatActivity {
         });
 
         b_plusMinus.setOnClickListener(new View.OnClickListener() {
+            /**
+             * Listener para el botón b_plusMinus, permite  poner en negativo el resultado actual, borrando el texto invalid expression si estuviese
+             * Funciona con la expresión y con el resultado calculado. Pone el opuesto como resultado para seguir calculando desde ahi
+             * @param view vista en la que esta el boton
+             */
             @Override
             public void onClick(View view) {
                 if(tDec.getText().equals("Invalid Expression")){
@@ -308,8 +405,14 @@ public class MainActivity extends AppCompatActivity {
         });
 
         b_equal.setOnClickListener(new View.OnClickListener() {
+            /**
+             * Listener para el botón b_equal, permite ecalcular el resultado de la expresión escrita, con caso especial por si esta vacía la expresion
+             * y empleando el metodo calculate que se ve mas adelante. Si sucede una excepción muestra Invalid Expression
+             * @param view vista en la que esta el boton
+             */
             @Override
             public void onClick(View view) {
+
 
                 if(tDec.length()!=0)
                 {
@@ -335,6 +438,10 @@ public class MainActivity extends AppCompatActivity {
         });
 
         b_clear.setOnClickListener(new View.OnClickListener() {
+            /**
+             * Listener para el botón b_clear, permite borrar los campos de texto
+             * @param view vista en la que esta el boton
+             */
             @Override
             public void onClick(View view) {
                 tDec.setText("");
@@ -346,6 +453,10 @@ public class MainActivity extends AppCompatActivity {
         });
 
         b_backspace.setOnClickListener(new View.OnClickListener() {
+            /**
+             * Listener para el botón b_backspace, permite eliminar el ultimo caracter escrito en el cuadro de texto de escritura de la expresion, borrando el texto invalid expression si estuviese
+             * @param view vista en la que esta el boton
+             */
             @Override
             public void onClick(View view) {
                 if ((tDec.getText().length() > 0)) {
@@ -371,6 +482,12 @@ public class MainActivity extends AppCompatActivity {
 
             }
 
+            /**
+             * Listener para mostrar la traducción actual de la expresion escrita hasta el momento, con casos particulares para mostrar la expresión correctamente
+             * Si es un número lo muestra tal cual. Se activa cada vez que el texto de la expresión cambia
+             * Muestra la expresión correspondiente en los campos en los que no se está escribiendo
+             * @param s interfaz de elementos que se puede editar su contenido
+             */
             @Override
             public void afterTextChanged(Editable s) {
                 if (tDec.getText().toString().length() > 0) {
@@ -411,7 +528,13 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+
         tBinMode.setOnClickListener(new View.OnClickListener() {
+            /**
+             * Listener para el text tBinMode, permite cambiar el campo en el que se está escribiendo a binario
+             * Cambia los colores de los campos para dejar resaltado en el que se esta escribiendo
+             * @param v vista en la que esta el boton
+             */
             @Override
             public void onClick(View v) {
                 enableButtonsBIN();
@@ -427,6 +550,11 @@ public class MainActivity extends AppCompatActivity {
         });
 
         tDecMode.setOnClickListener(new View.OnClickListener() {
+            /**
+             * Listener para el text tDecMode, permite cambiar el campo en el que se está escribiendo a decimal
+             * Cambia los colores de los campos para dejar resaltado en el que se esta escribiendo
+             * @param v vista en la que esta el boton
+             */
             @Override
             public void onClick(View v) {
                 enableButtonsDEC();
@@ -442,6 +570,11 @@ public class MainActivity extends AppCompatActivity {
         });
 
         tHexMode.setOnClickListener(new View.OnClickListener() {
+            /**
+             * Listener para el text tHexMode, permite cambiar el campo en el que se está escribiendo a hexadecimal
+             * Cambia los colores de los campos para dejar resaltado en el que se esta escribiendo
+             * @param v vista en la que esta el boton
+             */
             @Override
             public void onClick(View v) {
                 enableButtonsHEX();
@@ -458,6 +591,11 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
+    /**
+     * Método getLastSimbol devuelve el último símbolo de operación
+     * @param s es la propia expresión
+     * @return string con el símbolo en cuestion
+     */
     private String getLastSimbol(String s) {
         int position = -1;
         for (int i = 0; i < s.length(); i++) {
@@ -470,6 +608,12 @@ public class MainActivity extends AppCompatActivity {
         return null;
     }
 
+    /**
+     * Método que analiza si es válido escribir el símbolo sim a continuación en la expresión, caso especial para el - ya que es el único que puede ir detrás de otro símbolo.
+     * @param s es la propia expresión
+     * @param sim simbolo en concretoq ue se va a analizar si es válido sintácticamente en la expresion
+     * @return true si el símbolo se puede escribir a continuación y false si sería sintaxis incorrecta
+     */
     private boolean permiteSimbolo(String s, String sim){
         char[] arr = s.toCharArray();
         int n=arr.length-1;
@@ -486,6 +630,11 @@ public class MainActivity extends AppCompatActivity {
         return valido;
     }
 
+    /**
+     * Método getFirstSimbol devuelve el primer símbolo de operación
+     * @param s es la propia expresión
+     * @return string con el símbolo en cuestion
+     */
     private String getFirstSimbol(String s) {
         for (int i = 0; i < s.length(); i++) {
             if(s.charAt(i) == '+' || s.charAt(i) == '-' || s.charAt(i) == '*' || s.charAt(i) == '/') {
@@ -495,6 +644,11 @@ public class MainActivity extends AppCompatActivity {
         return null;
     }
 
+    /**
+     * Método que transforma un array de caracteres en una string
+     * @param arr array de caracteres a transformar
+     * @return string correspondiente al array de caracteres
+     */
     private String charArrayToString(char[] arr) {
         String s = "";
 
@@ -504,6 +658,11 @@ public class MainActivity extends AppCompatActivity {
         return s;
     }
 
+    /**
+     * Método que calcula el número de símbolos en un array de caracteres, correspondiente a la expresión. El - (marca de numero negativo) inicial no se cuenta
+     * @param arr es la propia expresión
+     * @return int con el numero de símbolos (sin contar el negativo inicial si lo hubiere)
+     */
     private int getNumSimbolos(char[] arr) {
         int position = 0;
         int contador = 0;
@@ -523,10 +682,21 @@ public class MainActivity extends AppCompatActivity {
         return contador;
     }
 
+    /**
+     * Método que analiza si el caracter en cuestión es uno de los símbolos de las operaciones (+,-,*,/)
+     * @param caracter caracter a analizar
+     * @return true si es un símbolo de operación y false en caso contrario
+     */
     private boolean esSimbolo(char caracter) {
         return (caracter == '+' || caracter == '-' || caracter == '*' || caracter == '/');
     }
 
+    /**
+     * Método que elimina de la expresión los ultimos simbolos que finalizan la expresión(18*9+-, en este caso deja 18*9)
+     * Se emplea para crear una operación válida para el cálculo automático del resultado provisional
+     * @param arr es la propia expresión
+     * @return array de caracteres con la expresión válida para ser calculada
+     */
     private char[] eliminarUltimosSimbolos(char[] arr) {
         int n = arr.length;
         while (esSimbolo(arr[n - 1])) {
@@ -541,25 +711,46 @@ public class MainActivity extends AppCompatActivity {
         return arrReturn;
     }
 
-
+    /**
+     * Método que convierte un numero decimal a su equivalente binario
+     * @param decVal es el numero decimal a convertir
+     * @return string de la conversión a binario
+     */
     public  String decToBin(Integer decVal) {
         return Integer.toBinaryString(decVal);
     }
 
+    /**
+     * Método que convierte un numero decimal a su equivalente hexadecimal
+     * @param decVal es el numero decimal a convertir
+     * @return string de la conversión a hexadecimal
+     */
     public  String decToHex(Integer decVal) {
         return Integer.toHexString(decVal);
     }
 
+    /**
+     * Método que convierte un numero hexadecimal a su equivalente decimal
+     * @param hexVal es el numero hexadecimal a convertir
+     * @return int de la conversión a decimal
+     */
     public int hexToDec(String hexVal) {
         return Integer.parseInt(hexVal,16);
     }
 
+    /**
+     * Método que convierte un numero binario a su equivalente decimal
+     * @param binVal es el numero binario a convertir
+     * @return int de la conversión a decimal
+     */
     public int binToDec(String binVal) {
         return Integer.parseInt(binVal,2);
     }
 
 
-
+    /**
+     * Método que inicializa los botones de la vista, original de la librería
+     */
     private void viewSetup() {
         b1 = findViewById(R.id.button1);
         b2 = findViewById(R.id.button2);
@@ -599,6 +790,9 @@ public class MainActivity extends AppCompatActivity {
     }
 
 
+    /**
+     * Método original de la librería
+     */
     // Remove error message that is already written there.
     private void ifErrorOnOutput() {
         if (tBin.getText().toString().equals("Error")) {
@@ -612,6 +806,11 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
+    /**
+     * Método que añade la letra pulsado al campo hexadecimal. Hace las comprobaciones pertinentes para colocar el equivalente en
+     * los otros dos campos
+     * @param letter letra del boton hexadecimal que se ha pulsado
+     */
     private void letterButtonClicked(String letter) {
         ifErrorOnOutput();
         exceedLength();
@@ -631,6 +830,11 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
+    /**
+     * Método que añade el numero pulsado al campo binario. Hace las comprobaciones pertinentes para colocar el equivalente en
+     * los otros dos campos
+     * @param number numero del boton binario que se ha pulsado
+     */
     private void binaryButtonClicked(String number) {
         ifErrorOnOutput();
         exceedLength();
@@ -652,6 +856,10 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
+    /**
+     * Método que añade el numero pulsado al campo decimal
+     * @param number numero del boton decimal que se ha pulsado
+     */
     private void decimalButtonClicked(String number) {
         ifErrorOnOutput();
         exceedLength();
@@ -659,26 +867,43 @@ public class MainActivity extends AppCompatActivity {
         tDec.setText(tDec.getText().toString() + number);
     }
 
+    /**
+     * Método que desactiva los botones
+     */
     private void disableAllButtons() {
 
         setNumberButtonsClickable(16, false);
     }
 
+    /**
+     * Método que activa los botones binarios
+     */
     private void enableButtonsBIN() {
         disableAllButtons();
         setNumberButtonsClickable(2, true);
     }
 
+    /**
+     * Método que activa los botones decimales
+     */
     private void enableButtonsDEC() {
         disableAllButtons();
         setNumberButtonsClickable(10, true);
     }
 
+    /**
+     * Método que activa los botones hexadecimales
+     */
     private void enableButtonsHEX() {
         disableAllButtons();
         setNumberButtonsClickable(16, true);
     }
 
+    /**
+     * Método que activa los botones en un rango dado
+     * @param range es el rango de botones a activar
+     * @param mode es el modo, true es activar, false desactivar
+     */
     private void setNumberButtonsClickable(int range, boolean mode) {
         for (int i = 0; i < range; i++) {
             Button button = findViewById(getResources().getIdentifier("button" + i,
@@ -688,6 +913,9 @@ public class MainActivity extends AppCompatActivity {
     }
 
 
+    /**
+     * Método original de la librería
+     */
     // Make text small if too many digits.
     private void exceedLength() {
         if (tBin.getText().toString().length() > 10) {
@@ -701,6 +929,10 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
+    /**
+     * Método que se ejecuta cuando se hace click en un boton de operacion, añade el simbolo a la expresión
+     * @param op es el símbolo a añadir
+     */
     private void operationClicked(String op)
     {
         addOperationToTextView(tBin, op);
@@ -708,6 +940,11 @@ public class MainActivity extends AppCompatActivity {
         addOperationToTextView(tDec, op);
     }
 
+    /**
+     * Método que añade la operación al textview correspondiente
+     * @param t1 es el textview donde se tiene que escribir
+     * @param op es el símbolo a añadir
+     */
     private void addOperationToTextView(TextView t1, String op) {
         if (t1.length() != 0) {
             t1.setText(t1.getText() + op);
@@ -721,6 +958,12 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
+    /**
+     * Método que calcula el resultado de una expresión dada, tiene en cuenta distintos casos dependiendo del tipo de operación
+     * Tiene en cuenta si un número es negativo, le cambia el signo si es necesario y calcula la expresión al completo
+     * @param expression es la propia expresión
+     * @return double con el resultado de la expresión redondeado a 5 cifras decimales
+     */
     private int calculate(String expression) {
         String op1String ="";
         String op2String ="";
