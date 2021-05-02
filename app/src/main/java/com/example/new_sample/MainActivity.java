@@ -413,14 +413,14 @@ public class MainActivity extends AppCompatActivity {
              */
             @Override
             public void onClick(View view) {
-
-
-                if(tDec.length()!=0)
+                if(tDec.length()!=0||tBin.length()!=0||tHex.length()!=0)
                 {
                     expression=tDec.getText().toString();
+                }else{
+                    expression="";
                 }
                 if(expression.length()==0)
-                    expression="0.0";
+                    expression="0";
                 try
                 {
                     //evaluate the expression
@@ -431,9 +431,28 @@ public class MainActivity extends AppCompatActivity {
                 }
                 catch (Exception e)
                 {
-                    tDec.setText("Invalid Expression");
-                    expression="";
-                    e.printStackTrace();
+                    try{
+                        Double d=Double.parseDouble(expression);
+                        if(d instanceof Double){
+                            System.out.println("&&&&&&&&&&&&&&&&&&&&&&&&&&&&&& DOUBLE "+d);
+                            System.out.println("&&&&&&&&&&&&&&&&&&&&&&&&&&&&&& EXPRESION "+expression);
+                            tDec.setText(expression);
+                            System.out.println("&&&&&&&&&&&&&&&&&&&&&&&&&&&&&& TDEC "+tDec.getText());
+                            int i = (int) Math.round(d);
+                            System.out.println("&&&&&&&&&&&&&&&&&&&&&&&&&&&&&& ENTERO "+i);
+                            tHex.setText(decToHex(i));
+                            System.out.println("&&&&&&&&&&&&&&&&&&&&&&&&&&&&&& THEX "+tHex.getText());
+                            tBin.setText(decToBin(i));
+                            System.out.println("&&&&&&&&&&&&&&&&&&&&&&&&&&&&&& TBIN "+tBin.getText());
+                        }else{
+                            tDec.setText("Invalid Expression");
+                            expression="";
+                        }
+
+                    }catch(NumberFormatException nfe){
+                        System.out.println("&&&&&&&&&&&&&&&&&&&&&&&&&&&&&& EXCEPCION ");
+                        nfe.printStackTrace();
+                    }
                 }
             }
         });
