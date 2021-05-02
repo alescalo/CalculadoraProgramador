@@ -479,23 +479,47 @@ public class MainActivity extends AppCompatActivity {
              */
             @Override
             public void onClick(View view) {
+
                 switch (modo){
                     case "hex":
                         if ((tHex.getText().length() > 0)) {
                             if (tHex.getText().toString().length() == 1) {
-                                tHex.setText("");
-                            } else {
+                                operando1 = "";
+                                tDec.setText("");
+                            } else if(getNumSimbolos(tHex.getText().toString().toCharArray()) == 0)
+                            {
+                                operando1 = tHex.getText().toString();
                                 CharSequence name = tHex.getText().toString();
                                 tHex.setText(name.subSequence(0, name.length() - 1));
-                            }
-                            if (haySimbolo(tHex.getText().toString())){
-
-                            }else{
-                                Integer resultado = hexToDec(tHex.getText().toString());
-                                if (resultado == 0)
-                                    tDec.setText("");
-                                else {
-                                    tDec.setText(resultado + "");
+                                if(operando1.length() != 0) {
+                                    if(operando1.length() == 1) {
+                                        operando1 = "";
+                                        tDec.setText("");
+                                    } else {
+                                        operando1 = operando1.substring(0, operando1.length() - 1);
+                                        tDec.setText(String.valueOf(hexToDec(operando1)));
+                                        operando1 = decToHex(Integer.valueOf(operando1));
+                                        tBin.setText(decToBin(Integer.valueOf(String.valueOf(hexToDec(operando1)))));
+                                    }
+                                }
+                            }else if(getNumSimbolos(tHex.getText().toString().toCharArray()) > 0){
+                                CharSequence name = tHex.getText().toString();
+                                tHex.setText(name.subSequence(0, name.length() - 1));
+                                if (operando2.length() != 0) {
+                                    if(operando2.length() == 1) {
+                                        operando2 = "";
+                                        tDec.setText(String.valueOf(hexToDec(operando1)).concat(getFirstSimbol(tHex.getText().toString()))+"");
+                                        tBin.setText(decToBin(Integer.valueOf(String.valueOf(hexToDec(operando1)))).concat(getFirstSimbol(tHex.getText().toString()))+"");
+                                    } else {
+                                        operando2 = operando2.substring(0, operando2.length() - 1);
+                                        tDec.setText(String.valueOf(hexToDec(operando1)).concat(getFirstSimbol(tHex.getText().toString())).concat(String.valueOf(hexToDec(operando2))));
+                                        tBin.setText(decToBin(Integer.valueOf(String.valueOf(hexToDec(operando1)))).concat(getFirstSimbol(tHex.getText().toString())).concat(decToBin(Integer.valueOf(String.valueOf(hexToDec(operando2))))));
+                                    }
+                                } else {
+                                    operando1 = tHex.getText().toString().substring(0, tHex.getText().toString().length());
+                                    tDec.setText(String.valueOf(hexToDec(operando1)));
+                                    operando1 = decToHex(Integer.valueOf(operando1));
+                                    tBin.setText(decToBin(Integer.valueOf(String.valueOf(hexToDec(operando1)))));
                                 }
                             }
                         }
@@ -504,26 +528,75 @@ public class MainActivity extends AppCompatActivity {
                         if ((tDec.getText().length() > 0)) {
                             if (tDec.getText().toString().length() == 1) {
                                 tDec.setText("");
-                            } else {
+                            } else if(getNumSimbolos(tDec.getText().toString().toCharArray()) == 0)
+                            {
                                 CharSequence name = tDec.getText().toString();
                                 tDec.setText(name.subSequence(0, name.length() - 1));
+                                if(operando1.length() != 0) {
+                                    if(operando1.length() == 1) {
+                                        operando1 = "";
+                                    } else {
+                                        operando1 = operando1.substring(0, operando1.length() - 2);
+                                    }
+                                }
+                            }else if(getNumSimbolos(tDec.getText().toString().toCharArray()) > 0){
+                                CharSequence name = tDec.getText().toString();
+                                tDec.setText(name.subSequence(0, name.length() - 1));
+                                if (operando2.length() != 0) {
+                                    if(operando2.length() == 1) {
+                                        operando2 = "";
+                                        tBin.setText((decToBin(Integer.parseInt(hexToDec(operando1)+""))).concat(getFirstSimbol(tHex.getText().toString()))+"");
+                                        tHex.setText((decToHex(Integer.parseInt(hexToDec(operando1)+""))).concat(getFirstSimbol(tHex.getText().toString()))+"");
+                                    } else {
+                                        operando2 = operando2.substring(0, operando2.length() - 2);
+                                        tBin.setText((decToBin(Integer.parseInt(hexToDec(operando1)+""))).concat(getFirstSimbol(tHex.getText().toString())).concat(decToBin(Integer.parseInt(hexToDec(operando2)+""))));
+                                        tHex.setText((decToHex(Integer.parseInt(hexToDec(operando1)+""))).concat(getFirstSimbol(tHex.getText().toString())).concat(decToHex(Integer.parseInt(hexToDec(operando2)+""))));
+                                    }
+                                }
                             }
                         }
                         break;
                     case "bin":
                         if ((tBin.getText().length() > 0)) {
                             if (tBin.getText().toString().length() == 1) {
-                                tBin.setText("");
-                            } else {
+                                operando1 = "";
+                                tDec.setText("");
+                            } else if(getNumSimbolos(tBin.getText().toString().toCharArray()) == 0)
+                            {
+                                operando1 = tBin.getText().toString();
                                 CharSequence name = tBin.getText().toString();
                                 tBin.setText(name.subSequence(0, name.length() - 1));
+                                if(operando1.length() != 0) {
+                                    if(operando1.length() == 1) {
+                                        operando1 = "";
+                                        tDec.setText("");
+                                    } else {
+                                        operando1 = operando1.substring(0, operando1.length() - 1);
+                                        tDec.setText(String.valueOf(binToDec(operando1)));
+                                        operando1 = decToBin(Integer.valueOf(operando1));
+                                        tHex.setText(decToHex(Integer.valueOf(String.valueOf(binToDec(operando1)))));
+                                    }
+                                }
+                            }else if(getNumSimbolos(tBin.getText().toString().toCharArray()) > 0){
+                                CharSequence name = tBin.getText().toString();
+                                tBin.setText(name.subSequence(0, name.length() - 1));
+                                if (operando2.length() != 0) {
+                                    if(operando2.length() == 1) {
+                                        operando2 = "";
+                                        tDec.setText(String.valueOf(binToDec(operando1)).concat(getFirstSimbol(tHex.getText().toString()))+"");
+                                        tHex.setText(decToHex(Integer.valueOf(String.valueOf(binToDec(operando1)))).concat(getFirstSimbol(tHex.getText().toString()))+"");
+                                    } else {
+                                        operando2 = operando2.substring(0, operando2.length() - 1);
+                                        tDec.setText(String.valueOf(binToDec(operando1)).concat(getFirstSimbol(tHex.getText().toString())).concat(String.valueOf(binToDec(operando2))));
+                                        tHex.setText(decToHex(Integer.valueOf(String.valueOf(binToDec(operando1)))).concat(getFirstSimbol(tHex.getText().toString())).concat(decToHex(Integer.valueOf(String.valueOf(binToDec(operando2))))));
+                                    }
+                                } else {
+                                    operando1 = tBin.getText().toString().substring(0, tBin.getText().toString().length());
+                                    tDec.setText(String.valueOf(binToDec(operando1)));
+                                    operando1 = decToBin(Integer.valueOf(operando1));
+                                    tHex.setText(decToHex(Integer.valueOf(String.valueOf(binToDec(operando1)))));
+                                }
                             }
-                        }
-                        Integer resultado = binToDec(tBin.getText().toString());
-                        if(resultado == 0 )
-                            tDec.setText("");
-                        else{
-                            tDec.setText(resultado +"");
                         }
                         break;
                 }
