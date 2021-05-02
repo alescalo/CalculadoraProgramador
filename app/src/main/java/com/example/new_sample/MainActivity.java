@@ -6,6 +6,7 @@ import android.graphics.Color;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
+import android.util.Log;
 import android.util.TypedValue;
 import android.view.View;
 import android.widget.Button;
@@ -459,13 +460,53 @@ public class MainActivity extends AppCompatActivity {
              */
             @Override
             public void onClick(View view) {
-                if ((tDec.getText().length() > 0)) {
-                    if (tDec.getText().length() == 1) {
-                        tDec.setText("");
-                    } else {
-                        CharSequence name = tDec.getText().toString();
-                        tDec.setText(name.subSequence(0, name.length() - 1));
-                    }
+                switch (modo){
+                    case "hex":
+                        if ((tHex.getText().length() > 0)) {
+                            if (tHex.getText().toString().length() == 1) {
+                                tHex.setText("");
+                            } else {
+                                CharSequence name = tHex.getText().toString();
+                                tHex.setText(name.subSequence(0, name.length() - 1));
+                            }
+                            if (haySimbolo(tHex.getText().toString())){
+
+                            }else{
+                                Integer resultado = hexToDec(tHex.getText().toString());
+                                if (resultado == 0)
+                                    tDec.setText("");
+                                else {
+                                    tDec.setText(resultado + "");
+                                }
+                            }
+                        }
+                        break;
+                    case "dec":
+                        if ((tDec.getText().length() > 0)) {
+                            if (tDec.getText().toString().length() == 1) {
+                                tDec.setText("");
+                            } else {
+                                CharSequence name = tDec.getText().toString();
+                                tDec.setText(name.subSequence(0, name.length() - 1));
+                            }
+                        }
+                        break;
+                    case "bin":
+                        if ((tBin.getText().length() > 0)) {
+                            if (tBin.getText().toString().length() == 1) {
+                                tBin.setText("");
+                            } else {
+                                CharSequence name = tBin.getText().toString();
+                                tBin.setText(name.subSequence(0, name.length() - 1));
+                            }
+                        }
+                        Integer resultado = binToDec(tBin.getText().toString());
+                        if(resultado == 0 )
+                            tDec.setText("");
+                        else{
+                            tDec.setText(resultado +"");
+                        }
+                        break;
                 }
             }
         });
@@ -735,7 +776,10 @@ public class MainActivity extends AppCompatActivity {
      * @return int de la conversión a decimal
      */
     public int hexToDec(String hexVal) {
-        return Integer.parseInt(hexVal,16);
+        if (hexVal.isEmpty())
+            return 0;
+        else
+            return Integer.parseInt(hexVal,16);
     }
 
     /**
@@ -744,7 +788,10 @@ public class MainActivity extends AppCompatActivity {
      * @return int de la conversión a decimal
      */
     public int binToDec(String binVal) {
-        return Integer.parseInt(binVal,2);
+        if (binVal.isEmpty())
+            return 0;
+        else
+            return Integer.parseInt(binVal,2);
     }
 
 
@@ -1069,6 +1116,19 @@ public class MainActivity extends AppCompatActivity {
         operando1 = "";
         operando2 = "";
         return op1;
+    }
+
+    public boolean haySimbolo(String expression){
+
+        for (char i : expression.toCharArray()){
+
+            if(i == '+' || i == '-' || i == '/' || i == '*')
+                return true;
+
+        }
+
+        return false;
+
     }
 
 }
