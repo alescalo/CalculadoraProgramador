@@ -86,7 +86,14 @@ public class MainActivity extends AppCompatActivity {
              */
             @Override
             public void onClick(View view) {
-                binaryButtonClicked("1");
+
+                if (modo.equals("bin"))
+                    binaryButtonClicked("1");
+                else if (modo.equals("dec"))
+                    decimalButtonClicked("1");
+                else
+                    letterButtonClicked("1");
+
             }
         });
 
@@ -214,7 +221,13 @@ public class MainActivity extends AppCompatActivity {
              */
             @Override
             public void onClick(View view) {
-                binaryButtonClicked("0");
+                if (modo.equals("bin"))
+                    binaryButtonClicked("0");
+                else if (modo.equals("dec"))
+                    decimalButtonClicked("0");
+                else
+                    letterButtonClicked("0");
+
             }
         });
 
@@ -1074,9 +1087,12 @@ public class MainActivity extends AppCompatActivity {
      */
     private void operationClicked(String op)
     {
-        addOperationToTextView(tBin, op);
-        addOperationToTextView(tHex, op);
-        addOperationToTextView(tDec, op);
+        if(!esSimbolo(tDec.getText().toString().charAt(tDec.getText().toString().length() - 1))) {
+            addOperationToTextView(tBin, op);
+            addOperationToTextView(tHex, op);
+            addOperationToTextView(tDec, op);
+        }
+
     }
 
     /**
